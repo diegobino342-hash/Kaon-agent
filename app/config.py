@@ -1,0 +1,14 @@
+import os
+
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+HOME_BROKER_BEARER = os.getenv("HOME_BROKER_BEARER")
+
+WS_URL = (
+    "wss://ws-us2.pusher.com/app/43474559fc2d8059c93e"
+    "?protocol=7&client=js&version=8.4.0&flash=false"
+)
+
+ASSETS_URL = "https://user-api.homebroker.com/config/assets"
+TIME_URL = "https://configuration-api.homebroker.com/api/get-time/"
+HISTORY_URL = "https://market-historic-api.homebroker.com/assets/read_values"
