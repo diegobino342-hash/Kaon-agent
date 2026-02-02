@@ -1,0 +1,8 @@
+websocket-client
+requests
+python-dotenv
+pandas
+numpy
+ta
+schedule
+sqlite-utils
