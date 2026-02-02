@@ -1,5 +1,7 @@
+flask
+flask-cors
 websocket-client
 requests
-pandas
 numpy
-python-dotenv
+pandas
+ta
