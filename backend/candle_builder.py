@@ -21,3 +21,6 @@ class CandleBuilder:
             self.current["high"] = max(self.current["high"], price)
             self.current["low"] = min(self.current["low"], price)
             self.current["close"] = price
+
+    def get_candles(self):
+        return self.candles[-100:]
