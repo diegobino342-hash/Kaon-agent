@@ -1,8 +1,6 @@
-websocket-client
-requests
-python-dotenv
+websockets
 pandas
 numpy
-ta
-schedule
-sqlite-utils
+flask
+flask-cors
+sqlalchemy
