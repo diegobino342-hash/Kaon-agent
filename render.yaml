@@ -1,18 +1,7 @@
 services:
-  - type: web
-    name: kaon-entity
-    env: python
-
-    # ⚠️ Força versão estável do Python
-    runtime: python-3.11.9
-
-    # 📦 Instala dependências
-    buildCommand: pip install --upgrade pip && pip install -r backend/requirements.txt
-
-    # ▶️ Inicia o agente
-    startCommand: python backend/main.py
-
-    # 🌍 Porta padrão do Flask
-    envVars:
-      - key: PORT
-        value: 10000
+- type: web
+  name: kaon
+  env: python
+  runtime: python-3.11.9
+  buildCommand: pip install -r backend/requirements.txt
+  startCommand: python backend/main.py
