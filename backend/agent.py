@@ -37,3 +37,6 @@ def start():
 
 def get_signal():
     return latest_signal
+
+def get_candles():
+    return builder.get_candles()
