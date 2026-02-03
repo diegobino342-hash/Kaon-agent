@@ -4,10 +4,12 @@ class CandleBuilder:
         self.candles = []
 
     def add_tick(self, price, ts):
-        bucket = ts // 300000
+        bucket = ts // 300000  # M5
+
         if not self.current or self.current["bucket"] != bucket:
             if self.current:
                 self.candles.append(self.current)
+
             self.current = {
                 "bucket": bucket,
                 "open": price,
