@@ -16,6 +16,10 @@ def health():
 def signal():
     return jsonify(agent.get_signal())
 
+@app.route("/candles")
+def candles():
+    return jsonify(agent.get_candles())
+
 @app.route("/app")
 def frontend():
     return send_from_directory("../frontend", "index.html")
