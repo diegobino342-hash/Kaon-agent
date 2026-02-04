@@ -1,8 +1,12 @@
 from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 import agent
+import os
 
-app = Flask(__name__, static_folder="../frontend")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
+
+app = Flask(__name__, static_folder=FRONTEND_DIR, static_url_path="/")
 CORS(app)
 
 # inicia o agente automaticamente
@@ -22,11 +26,11 @@ def candles():
 
 @app.route("/app")
 def frontend():
-    return send_from_directory("../frontend", "index.html")
+    return send_from_directory(FRONTEND_DIR, "index.html")
 
-@app.route("/app/<path:path>")
+@app.route("/<path:path>")
 def static_files(path):
-    return send_from_directory("../frontend", path)
+    return send_from_directory(FRONTEND_DIR, path)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
