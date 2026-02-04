@@ -1,4 +1,3 @@
-import threading
 from websocket_client import MarketSocket
 from candle_builder import CandleBuilder
 from indicators import apply
@@ -10,7 +9,11 @@ latest_signal = {}
 
 def on_tick(tick):
     global latest_signal
+
     builder.add_tick(tick["price"], tick["timestamp"])
+
+    # LOG PARA CONFIRMAR VIDA
+    print("TICK:", tick["price"])
 
     if len(builder.candles) < 20:
         return
@@ -25,15 +28,11 @@ def on_tick(tick):
             "direction": direction,
             "probability": prob
         }
-        print("SINAL:", latest_signal)
-
-def run():
-    ws = MarketSocket(on_tick)
-    ws.connect(SYMBOL)
+        print("SINAL GERADO:", latest_signal)
 
 def start():
-    t = threading.Thread(target=run, daemon=True)
-    t.start()
+    ws = MarketSocket(on_tick)
+    ws.start(SYMBOL)
 
 def get_signal():
     return latest_signal
